@@ -1,9 +1,17 @@
 import { CardTypes, ContextTypes } from "../types/base-card-variation-types";
-import { IMessageCard, IMessageCardSection, MessageCardProps, MessageCardSectionProps } from "../types/message-card-types";
-import { MessageCardSection } from "./message-card-section";
+import { MessageCardProps, MessageCardSectionProps } from "../types/message-card-types";
+
+interface IMessageCard extends MessageCardProps {
+    setSummary(summary: string): void;
+    setTitle(title: string): void;
+    setText(text: string): void;
+    setThemeColor(themeColor: string): void;
+    setExpectedActors(expectedActors: string[]): void;
+    setCorrelationId(correlationId: string): void;
+    get(): MessageCardProps;
+}
 
 export class MessageCard implements IMessageCard {
-
     "@type": CardTypes;
     "@context": ContextTypes;
     correlationId?: string;
@@ -22,16 +30,22 @@ export class MessageCard implements IMessageCard {
         this["@context"] = "http://schema.org/extensions";
     }
 
-    setSections(sections: MessageCardSectionProps[]) { this.sections = sections; }
+    setSummary(summary: string): void { this.summary = summary; }
 
-    setThemeColor(themeColor: string) { this.themeColor = themeColor; }
+    setTitle(title: string): void { this.title = title; }
 
-    setCorrelationId(correlationId: string) { this.correlationId = correlationId; }
+    setText(text: string): void { this.text = text; }
 
-    setExpectedActors(expectedActors: string[]) { this.expectedActors = expectedActors; }
+    setSections(sections: MessageCardSectionProps[]): void { this.sections = sections; }
 
-    build(): MessageCardProps {
-        const card: MessageCardProps = {
+    setThemeColor(themeColor: string): void { this.themeColor = themeColor; }
+
+    setCorrelationId(correlationId: string): void { this.correlationId = correlationId; }
+
+    setExpectedActors(expectedActors: string[]): void { this.expectedActors = expectedActors; }
+
+    get(): MessageCardProps {
+        return {
             "@type": this["@type"],
             "@context": this["@context"],
             correlationId: this.correlationId,
@@ -42,6 +56,5 @@ export class MessageCard implements IMessageCard {
             themeColor: this.themeColor,
             sections: this.sections
         }
-        return card;
     }
 }

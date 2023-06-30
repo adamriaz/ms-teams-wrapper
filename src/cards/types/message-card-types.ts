@@ -1,84 +1,83 @@
-import { ContextTypes, IBaseCard } from "./base-card-variation-types";
+import { BaseCardProps, ContextTypes } from "./base-card-variation-types";
 
 export type IPotentialActionTargetOSType = "default" | "iOS" | "android" | "windows";
 export type BaseInputTypes = "TextInput" | "DateInput" | "MultiChoiceInput";
 export type PotentialActionType = "ActionCard" | "OpenUri" | "HttpPOST";
 
-export interface IMessageCardSectionFact { 
-    name: string; 
-    value: string; 
-}
-
-export interface IMessageCardSectionImage { 
-    title: string; 
-    image: string; 
-}
-
-export interface IHttpPostActionHeader { 
-    name: string; 
-    value: string; 
-}
-
-export interface IOpenURITarget { 
-    os: IPotentialActionTargetOSType; 
-    uri: string; 
-}
-
-export interface IBasePotentialAction {
-    "@type": PotentialActionType;
+export interface MessageCardSectionFactProps {
     name: string;
+    value: string;
 }
 
-export interface IOpenURIAction extends IBasePotentialAction {
-    target: IOpenURITarget[];
+export interface MessageCardSectionImageProps {
+    title: string; 
+    image: string;
 }
 
-export interface IHttpPostAction extends IBasePotentialAction {
-    target: string;
-    body: string;
-    bodyContentType?: string;
-    headers?: IHttpPostActionHeader[];
-}
-
-export type ActionTypesForActionCardsActions = IOpenURIAction[] | IHttpPostAction[]
-
-
-export interface IBaseInput {
+export interface BaseInputProps {
     id: string;
     "@type": BaseInputTypes;
-    isRequired: boolean;
+    isRequired?: boolean;
     title: string;
     value: string;
 }
 
-export interface IMultiChoiceInputChoice {
+export interface MultiChoiceInputChoiceProps {
     display: string;
     value: string;
 }
 
-export interface ITextInput extends IBaseInput {
-    isMultiline: boolean;
+export interface TextInputProps extends BaseInputProps {
+    isMultiline?: boolean;
     maxLength: number;
 }
 
-export interface IDateInput extends IBaseInput {
-    includeTime: boolean;
+export interface DateInputProps extends BaseInputProps {
+    includeTime?: boolean;
 }
 
-export interface IMultiChoiceInput extends IBaseInput {
-    choices: IMultiChoiceInputChoice[];
-    isMultiSelect: boolean;
-    style: string;
+export interface MultiChoiceInputProps extends BaseInputProps {
+    choices: MultiChoiceInputChoiceProps[];
+    isMultiSelect?: boolean;
+    style?: string;
 }
 
-export type InputTypes = ITextInput | IDateInput | IMultiChoiceInput;
+export type InputTypes = TextInputProps | DateInputProps | MultiChoiceInputProps;
 
-export interface IActionCardAction extends IBasePotentialAction {
+export interface HttpPostActionHeaderProps { 
+    name: string; 
+    value: string; 
+}
+
+export interface OpenURITargetProps { 
+    os: IPotentialActionTargetOSType; 
+    uri: string; 
+} 
+
+export interface BasePotentialActionProps {
+    "@type": PotentialActionType;
+    name: string;
+}
+
+export interface OpenURIActionProps extends BasePotentialActionProps {
+    target: OpenURITargetProps[];
+}
+
+export interface HttpPostActionProps extends BasePotentialActionProps {
+    target: string;
+    body: string;
+    bodyContentType?: string;
+    headers?: HttpPostActionHeaderProps[];
+}
+
+export type ActionTypesForActionCardsActions = OpenURIActionProps[] | HttpPostActionProps[]
+
+export interface ActionCardActionProps extends BasePotentialActionProps {
     actions: ActionTypesForActionCardsActions[];
     inputs: InputTypes[];
 }
 
-export type PotentialActionTypes = IActionCardAction[] | IOpenURIAction[] | IHttpPostAction[];
+export type PotentialActionTypes = ActionCardActionProps[] | OpenURIActionProps[] | HttpPostActionProps[];
 
 export interface MessageCardSectionProps {
     title: string;
@@ -89,16 +88,12 @@ export interface MessageCardSectionProps {
     activityImage?: string;
     heroImage?: string;
     text?: string;
-    facts?: IMessageCardSectionFact[];
-    images?: IMessageCardSectionImage[];
+    facts?: MessageCardSectionFactProps[];
+    images?: MessageCardSectionImageProps[];
     potentialAction?: PotentialActionTypes;
 }
 
-export interface IMessageCardSection extends MessageCardSectionProps{
-    
-}
-
-export interface MessageCardProps extends IBaseCard {
+export interface MessageCardProps extends BaseCardProps {
     "@context": ContextTypes
     correlationId?: string;
     expectedActors?: string[];
@@ -107,11 +102,4 @@ export interface MessageCardProps extends IBaseCard {
     text: string;
     themeColor?: string;
     sections?: MessageCardSectionProps[];
-}
-
-export interface IMessageCard extends MessageCardProps {  
-    setThemeColor(themeColor: string): void;
-    setExpectedActors(expectedActors: string[]): void;
-    setCorrelationId(correlationId: string): void;
-    build(): MessageCardProps;
 }

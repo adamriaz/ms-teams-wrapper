@@ -1,4 +1,19 @@
-import { IMessageCardSection, IMessageCardSectionFact, IMessageCardSectionImage, MessageCardSectionProps, PotentialActionTypes } from "../types/message-card-types";
+import { MessageCardSectionFactProps, MessageCardSectionImageProps, MessageCardSectionProps, PotentialActionTypes } from "../types/message-card-types";
+
+interface IMessageCardSection extends MessageCardSectionProps{
+    setTitle(title: string): void;
+    setStartGroup(startGroup: boolean): void;
+    setActivityTitle(activityTitle: string): void;
+    setActivitySubtitle(activitySubtitle: string): void;
+    setActivityText(activityText: string): void;
+    setActivityImage(activityImage: string): void;
+    setHeroImage(heroImage: string): void;
+    setText(text: string): void;
+    setFacts(facts: MessageCardSectionFactProps[]): void;
+    setImages(images: MessageCardSectionImageProps[]): void;
+    setPotentialAction(potentialAction: PotentialActionTypes): void;
+    get(): MessageCardSectionProps;
+}
 
 export class MessageCardSection implements IMessageCardSection {
     title: string;
@@ -9,32 +24,38 @@ export class MessageCardSection implements IMessageCardSection {
     activityImage?: string;
     heroImage?: string;
     text?: string;
-    facts?: IMessageCardSectionFact[];
-    images?: IMessageCardSectionImage[];
+    facts?: MessageCardSectionFactProps[];
+    images?: MessageCardSectionImageProps[];
     potentialAction?: PotentialActionTypes;
 
     constructor(title: string) {
         this.title = title;
     }
 
-    setstartGroup(startGroup: boolean) { this.startGroup = startGroup; }
+    setTitle(title: string): void { this.title = title; }
 
-    setActivityTitle(activityTitle: string) { this.activityTitle = activityTitle; }
+    setStartGroup(startGroup: boolean): void { this.startGroup = startGroup; }
 
-    setActivitySubtitle(activitySubtitle: string) {  this.activitySubtitle = activitySubtitle; }
+    setActivityTitle(activityTitle: string): void { this.activityTitle = activityTitle; }
 
-    setActivityText(activityText: string) { this.activityText = activityText; }
+    setActivitySubtitle(activitySubtitle: string): void {  this.activitySubtitle = activitySubtitle; }
 
-    setActivityImage(activityImage: string) { this.activityImage= activityImage; }
+    setActivityText(activityText: string): void { this.activityText = activityText; }
 
-    setHeroImage(heroImage: string) { this.heroImage = heroImage; }
+    setActivityImage(activityImage: string): void { this.activityImage= activityImage; }
 
-    setText(text: string) { this.text = text; }
+    setHeroImage(heroImage: string): void { this.heroImage = heroImage; }
 
-    setFacts(facts: IMessageCardSectionFact[]) { this.facts = facts; }
+    setText(text: string): void { this.text = text; }
 
-    build() {
-        const messageCardSection: MessageCardSectionProps = {
+    setFacts(facts: MessageCardSectionFactProps[]): void { this.facts = facts; }
+
+    setImages(images: MessageCardSectionImageProps[]): void { this.images = images; }
+
+    setPotentialAction(potentialAction: PotentialActionTypes): void { this.potentialAction = potentialAction; }
+
+    get(): MessageCardSectionProps {
+        return {
             title: this.title,
             startGroup: this.startGroup,
             activityTitle: this.activityTitle,
@@ -47,7 +68,6 @@ export class MessageCardSection implements IMessageCardSection {
             images: this.images,
             potentialAction: this.potentialAction
         }
-        return messageCardSection;
     }
 
 }

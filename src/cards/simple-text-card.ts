@@ -1,8 +1,13 @@
 import { JSONType } from "../utils/types";
 
-export class SimpleTextCard {
+interface ISimpleTextCard {
+    jsonBuilder: JSONType;
+    get(): JSONType;
+}
+
+export class SimpleTextCard implements ISimpleTextCard  {
     
-    private jsonBuilder: JSONType;
+    jsonBuilder: JSONType;
 
     constructor(text: string) {
         this.jsonBuilder = {
@@ -10,7 +15,7 @@ export class SimpleTextCard {
         }
     }
 
-    public build() {
+    get() {
         return this.jsonBuilder;
     }
 }
