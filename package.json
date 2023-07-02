@@ -9,8 +9,10 @@
   ],
   "scripts": {
     "build": "rimraf dist && tsc",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage --watchAll",
+    "test:clear-cache": "jest --clearCache"
   },
   "keywords": [
     "microsoft",
@@ -34,7 +36,15 @@
     "collectCoverage": true,
     "coverageReporters": [
       "json",
-      "html"
+      "html",
+      "text"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,ts}",
+      "!**/node_modules/**",
+      "!**/dist/**",
+      "!**/index.{js,ts}",
+      "!**/coverage/**"
     ],
     "preset": "ts-jest",
     "testEnvironment": "node"
