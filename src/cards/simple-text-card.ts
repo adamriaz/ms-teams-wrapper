@@ -1,21 +1,22 @@
-import { JSONType } from "../utils/types";
+export interface SimpleTextCardProps {
+    text: string;
+}
 
-interface ISimpleTextCard {
-    jsonBuilder: JSONType;
-    get(): JSONType;
+export interface ISimpleTextCard extends SimpleTextCardProps {
+    get(): SimpleTextCardProps;
 }
 
 export class SimpleTextCard implements ISimpleTextCard  {
     
-    jsonBuilder: JSONType;
+    text: string;
 
     constructor(text: string) {
-        this.jsonBuilder = {
-            text
-        }
+        this.text = text;
     }
 
-    get() {
-        return this.jsonBuilder;
+    get(): SimpleTextCardProps {
+        return {
+            text: this.text
+        };
     }
 }
