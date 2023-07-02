@@ -11,7 +11,7 @@
     "build": "rimraf dist && tsc",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage --watchAll",
+    "test:coverage": "jest --coverage",
     "test:clear-cache": "jest --clearCache"
   },
   "keywords": [
