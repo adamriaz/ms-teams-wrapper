@@ -3,13 +3,13 @@ import { JSONType, WebhookResult } from './types';
 
 
 class HttpClient {
-    private axios: AxiosInstance;
+    private _axios: AxiosInstance;
 
-    private url: string;
+    private _url: string;
 
     constructor(baseUrl: string) {
-        this.url = baseUrl;
-        this.axios = axios.create({
+        this._url = baseUrl;
+        this._axios = axios.create({
             baseURL: baseUrl,
             headers: {
                 'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ class HttpClient {
 
     public async send(payload: JSONType) {
         try {
-            const response = await this.axios.post(this.url, payload);
+            const response = await this._axios.post(this._url, payload);
             return this.results(response);
         } catch (error) {
             throw error;

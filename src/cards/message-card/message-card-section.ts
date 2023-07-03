@@ -1,58 +1,58 @@
 import { MessageCardSectionFactProps, MessageCardSectionImageProps, MessageCardSectionProps, PotentialActionTypes } from "../types/message-card-types";
 
 interface IMessageCardSection extends MessageCardSectionProps{
-    setTitle(title: string): void;
-    setStartGroup(startGroup: boolean): void;
-    setActivityTitle(activityTitle: string): void;
-    setActivitySubtitle(activitySubtitle: string): void;
-    setActivityText(activityText: string): void;
-    setActivityImage(activityImage: string): void;
-    setHeroImage(heroImage: string): void;
-    setText(text: string): void;
-    setFacts(facts: MessageCardSectionFactProps[]): void;
-    setImages(images: MessageCardSectionImageProps[]): void;
-    setPotentialAction(potentialAction: PotentialActionTypes): void;
     get(): MessageCardSectionProps;
 }
 
 export class MessageCardSection implements IMessageCardSection {
-    title: string;
-    startGroup?: boolean;
-    activityTitle?: string;
-    activitySubtitle?: string;
-    activityText?: string;
-    activityImage?: string;
-    heroImage?: string;
-    text?: string;
-    facts?: MessageCardSectionFactProps[];
-    images?: MessageCardSectionImageProps[];
-    potentialAction?: PotentialActionTypes;
+    private _title: string;
+    private _startGroup: boolean;
+    private _activityTitle: string;
+    private _activitySubtitle: string;
+    private _activityText: string;
+    private _activityImage: string;
+    private _heroImage: string;
+    private _text: string;
+    private _facts: MessageCardSectionFactProps[];
+    private _images: MessageCardSectionImageProps[];
+    private _potentialAction: PotentialActionTypes;
 
     constructor(title: string) {
-        this.title = title;
+        this._title = title;
     }
 
-    setTitle(title: string): void { this.title = title; }
+    set title(title: string) { this._title = title; }
+    get title(): string { return this._title; }
 
-    setStartGroup(startGroup: boolean): void { this.startGroup = startGroup; }
+    set startGroup(startGroup: boolean) { this._startGroup = startGroup; }
+    get startGroup(): boolean { return this._startGroup; }
 
-    setActivityTitle(activityTitle: string): void { this.activityTitle = activityTitle; }
+    set activityTitle(activityTitle: string) { this._activityTitle = activityTitle; }
+    get activityTitle(): string { return this._activityTitle; }
 
-    setActivitySubtitle(activitySubtitle: string): void {  this.activitySubtitle = activitySubtitle; }
+    set activitySubtitle(activitySubtitle: string) {  this._activitySubtitle = activitySubtitle; }
+    get activitySubtitle(): string { return this._activitySubtitle; }
 
-    setActivityText(activityText: string): void { this.activityText = activityText; }
+    set activityText(activityText: string) { this._activityText = activityText; }
+    get activityText(): string { return this._activityText; }
 
-    setActivityImage(activityImage: string): void { this.activityImage= activityImage; }
+    set activityImage(activityImage: string) { this._activityImage= activityImage; }
+    get activityImage(): string { return this._activityImage; }
 
-    setHeroImage(heroImage: string): void { this.heroImage = heroImage; }
+    set heroImage(heroImage: string) { this._heroImage = heroImage; }
+    get heroImage(): string { return this._heroImage; }
 
-    setText(text: string): void { this.text = text; }
+    set text(text: string) { this._text = text; }
+    get text(): string { return this._text; }
 
-    setFacts(facts: MessageCardSectionFactProps[]): void { this.facts = facts; }
+    set facts(facts: MessageCardSectionFactProps[]) { this._facts = facts; }
+    get facts(): MessageCardSectionFactProps[] { return this._facts; }
 
-    setImages(images: MessageCardSectionImageProps[]): void { this.images = images; }
+    set images(images: MessageCardSectionImageProps[]) { this._images = images; }
+    get images(): MessageCardSectionImageProps[] { return this._images; }
 
-    setPotentialAction(potentialAction: PotentialActionTypes): void { this.potentialAction = potentialAction; }
+    set potentialAction(potentialAction: PotentialActionTypes) { this._potentialAction = potentialAction; }
+    get potentialAction(): PotentialActionTypes { return this._potentialAction; }
 
     get(): MessageCardSectionProps {
         return {

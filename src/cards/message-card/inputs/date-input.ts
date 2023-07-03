@@ -1,39 +1,41 @@
 import { BaseInputTypes, DateInputProps } from "../../types/message-card-types";
 
 interface IDateInput extends DateInputProps {
-    setId(id: string): void;
-    setIncludeTime(includeTime: boolean): void;
-    setIsRequired(isRequired: boolean): void;
-    setTitle(title: string): void;
-    setValue(value: string): void;
     get(): DateInputProps;
 }
 
 export class DateInput implements IDateInput {
-    includeTime?: boolean;
-    id: string;
-    "@type": BaseInputTypes;
-    isRequired?: boolean;
-    title: string;
-    value: string;
+    private _includeTime?: boolean;
+    private _id: string;
+    private _type: BaseInputTypes;
+    private _isRequired: boolean;
+    private _title: string;
+    private _value: string;
 
 
     constructor(id: string, title: string, value: string) {
-        this["@type"] = "DateInput"
-        this.id = id;
-        this.title = title;
-        this.value = value;
+        this._type = "DateInput"
+        this._id = id;
+        this._title = title;
+        this._value = value;
     }
 
-    setId(id: string): void { this.id = id; }
+    set id(id: string) { this._id = id; }
+    get id(): string { return this._id; }    
 
-    setIncludeTime(includeTime: boolean): void { this.includeTime = includeTime; }
+    set includeTime(includeTime: boolean) { this._includeTime = includeTime; }
+    get includeTime(): boolean { return this._includeTime; }
 
-    setIsRequired(isRequired: boolean): void { this.isRequired = isRequired; }
+    set isRequired(isRequired: boolean) { this._isRequired = isRequired; }
+    get isRequired(): boolean { return this._isRequired; }
 
-    setTitle(title: string): void { this.title = title; }
+    set title(title: string) { this._title = title; }
+    get title(): string { return this._title; }
 
-    setValue(value: string): void { this.value = value; }
+    set value(value: string) { this._value = value; }
+    get value(): string { return this._value; }
+
+    get ["@type"](): BaseInputTypes { return this._type; }
 
     get(): DateInputProps {
         return {

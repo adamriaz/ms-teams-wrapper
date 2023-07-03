@@ -1,23 +1,23 @@
 import { MultiChoiceInputChoiceProps } from "../../types/message-card-types";
 
 interface IMultiChoiceInputChoice extends MultiChoiceInputChoiceProps {
-    setDisplay(display: string): void;
-    setValue(value: string): void;
     get(): MultiChoiceInputChoiceProps;
 }
 
 export class MultiChoiceInputChoice implements IMultiChoiceInputChoice {
-    display: string;
-    value: string;
+    private _display: string;
+    private _value: string;
 
     constructor(display: string, value: string) {
-        this.display = display;
-        this.value = value;
+        this._display = display;
+        this._value = value;
     }
 
-    setDisplay(display: string): void { this.display = display; }
+    set display(display: string) { this._display = display; }
+    get display(): string { return this._display; }
 
-    setValue(value: string): void { this.value = value; }
+    set value(value: string) { this._value = value; }
+    get value(): string { return this._value; }
 
     get(): MultiChoiceInputChoiceProps {
         return {

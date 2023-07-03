@@ -1,28 +1,28 @@
 import { MessageCardSectionFactProps } from "../types/message-card-types";
 
-interface IMessageCardSectionFact extends MessageCardSectionFactProps{ 
-    setName(name: string): void; 
-    setValue(value: string): void;
+interface IMessageCardSectionFact extends MessageCardSectionFactProps {
     get(): MessageCardSectionFactProps;
 }
 
 export class MessageCardSectionFact implements IMessageCardSectionFact {
-    name: string;
-    value: string;
+    private _name: string;
+    private _value: string;
 
     constructor(name: string, value: string) {
-        this.name = name;
-        this.value = value;
+        this._name = name;
+        this._value = value;
     }
 
-    setName(name: string): void { this.name = name }
+    set name(name: string) { this._name = name }
+    get name(): string { return this._name }
 
-    setValue(value: string): void { this.value = value }
+    set value(value: string) { this._value = value }
+    get value(): string { return this._value }
 
-    get(): MessageCardSectionFactProps { 
+    get(): MessageCardSectionFactProps {
         return {
             name: this.name,
             value: this.value
-        }    
+        }
     }
 }

@@ -1,45 +1,47 @@
 import { BaseInputTypes, TextInputProps } from "../../types/message-card-types";
 
 interface ITextInput extends TextInputProps {
-    setIsMultiline(isMultiline: boolean): void;
-    setMaxLength(maxLength: number): void;
-    setID(id: string): void;
-    setTitle(title: string): void;
-    setValue(value: string): void;
-    setIsRequired(isRequired: boolean): void;
     get(): TextInputProps;
 }
 
 export class TextInput implements ITextInput {
-    isMultiline?: boolean;
-    maxLength: number;
-    id: string;
-    "@type": BaseInputTypes;
-    isRequired?: boolean;
-    title: string;
-    value: string;
+    private _isMultiline: boolean;
+    private _maxLength: number;
+    private _id: string;
+    private _type: BaseInputTypes;
+    private _isRequired: boolean;
+    private _title: string;
+    private _value: string;
 
     constructor(isMultiline: boolean, maxLength: number, id: string, isRequired: boolean, title: string, value: string) {
-        this.isMultiline = isMultiline;
-        this.maxLength = maxLength;
-        this.id = id;
-        this.isRequired = isRequired;
-        this.title = title;
-        this.value = value;
-        this["@type"] = "TextInput"
+        this._isMultiline = isMultiline;
+        this._maxLength = maxLength;
+        this._id = id;
+        this._isRequired = isRequired;
+        this._title = title;
+        this._value = value;
+        this._type = "TextInput"
     }
 
-    setIsMultiline(isMultiline: boolean): void { this.isMultiline = isMultiline; }
+    set isMultiline(isMultiline: boolean) { this._isMultiline = isMultiline; }
+    get isMultiline(): boolean { return this._isMultiline; }
 
-    setMaxLength(maxLength: number): void { this.maxLength = maxLength; }
+    set maxLength(maxLength: number) { this._maxLength = maxLength; }
+    get maxLength(): number { return this._maxLength; }
 
-    setID(id: string): void { this.id = id; }
+    set id(id: string) { this._id = id; }
+    get id(): string { return this._id; }
 
-    setTitle(title: string): void { this.title = title; }
+    set title(title: string) { this._title = title; }
+    get title(): string { return this._title; }
 
-    setValue(value: string): void { this.value = value; }
+    set value(value: string) { this._value = value; }
+    get value(): string { return this._value; }
 
-    setIsRequired(isRequired: boolean): void { this.isRequired = isRequired; }
+    set isRequired(isRequired: boolean) { this._isRequired = isRequired; }
+    get isRequired(): boolean { return this._isRequired; }
+
+    get ["@type"](): BaseInputTypes { return this._type; }
 
     get(): TextInputProps {
         return {

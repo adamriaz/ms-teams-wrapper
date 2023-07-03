@@ -1,47 +1,49 @@
 import { BaseInputTypes, MultiChoiceInputChoiceProps, MultiChoiceInputProps } from "../../types/message-card-types";
 
 interface IMultiChoiceInput extends MultiChoiceInputProps {
-    setChoices(choices: MultiChoiceInputChoiceProps[]): void;
-    setIsMultiSelect(isMultiSelect: boolean): void;
-    setStyle(style: string): void;
-    setId(id: string): void;
-    setIsRequired(isRequired: boolean): void;
-    setTitle(title: string): void;
-    setValue(value: string): void;
     get(): MultiChoiceInputProps;
 }
 
 export class MultiChoiceInput implements IMultiChoiceInput {
-    choices: MultiChoiceInputChoiceProps[];
-    isMultiSelect?: boolean;
-    style?: string;
-    id: string;
-    "@type": BaseInputTypes;
-    isRequired?: boolean;
-    title: string;
-    value: string;
+    private _choices: MultiChoiceInputChoiceProps[];
+    private _isMultiSelect: boolean;
+    private _style: string;
+    private _id: string;
+    private _type: BaseInputTypes;
+    private _isRequired: boolean;
+    private _title: string;
+    private _value: string;
 
     constructor(id: string, title: string, value: string, choices: MultiChoiceInputChoiceProps[]) {
-        this.id = id;
-        this.title = title;
-        this.value = value;
-        this.choices = choices;
-        this["@type"] = "MultiChoiceInput";
+        this._id = id;
+        this._title = title;
+        this._value = value;
+        this._choices = choices;
+        this._type = "MultiChoiceInput";
     }
 
-    setChoices(choices: MultiChoiceInputChoiceProps[]): void { this.choices = choices };
+    set choices(choices: MultiChoiceInputChoiceProps[]) { this._choices = choices };
+    get choices(): MultiChoiceInputChoiceProps[] { return this._choices };
 
-    setIsMultiSelect(isMultiSelect: boolean): void { this.isMultiSelect = isMultiSelect };
+    set isMultiSelect(isMultiSelect: boolean) { this._isMultiSelect = isMultiSelect };
+    get isMultiSelect(): boolean { return this._isMultiSelect };
 
-    setStyle(style: string): void { this.style = style };
+    set style(style: string) { this._style = style };
+    get style(): string { return this._style };
 
-    setId(id: string): void { this.id = id };
+    set id(id: string) { this._id = id };
+    get id(): string { return this._id };
 
-    setIsRequired(isRequired: boolean): void { this.isRequired = isRequired };
+    set isRequired(isRequired: boolean) { this._isRequired = isRequired };
+    get isRequired(): boolean { return this._isRequired };
 
-    setTitle(title: string): void { this.title = title };
+    set title(title: string) { this._title = title };
+    get title(): string { return this._title };
 
-    setValue(value: string): void { this.value = value };
+    set value(value: string) { this._value = value };
+    get value(): string { return this._value };
+
+    get ["@type"]() { return this._type };
 
     get(): MultiChoiceInputProps {
         return {

@@ -3,15 +3,15 @@ import { JSONType } from "../utils/types";
 
 export class Webhook {
 
-    private http: HttpClient;
-    private payload: JSONType;
+    private _http: HttpClient;
+    private _payload: JSONType;
 
     constructor(url: string, payload: JSONType) {        
-        this.http = new HttpClient(url);
-        this.payload = payload;
+        this._http = new HttpClient(url);
+        this._payload = payload;
     }
 
     public async sendMessage() {
-        await this.http.send(this.payload);
+        await this._http.send(this._payload);
     }
 }
