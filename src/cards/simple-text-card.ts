@@ -8,11 +8,14 @@ export interface ISimpleTextCard extends SimpleTextCardProps {
 
 export class SimpleTextCard implements ISimpleTextCard  {
     
-    text: string;
+    private _text: string;
 
     constructor(text: string) {
-        this.text = text;
+        this._text = text;
     }
+
+    set text(text: string) { this._text = text }
+    get text(): string { return this._text }
 
     get(): SimpleTextCardProps {
         return {

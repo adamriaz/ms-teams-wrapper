@@ -1,32 +1,33 @@
 import { OpenURIActionProps, OpenURITargetProps, PotentialActionType } from "../../types/message-card-types";
 
 interface IOpenURIAction extends OpenURIActionProps {
-    setName(name: string): void;
-    setTarget(target: OpenURITargetProps[]): void;
     get(): OpenURIActionProps;
 }
 
 export class OpenUriAction implements IOpenURIAction {
-    target: OpenURITargetProps[];
-    name: string;
-    "@type": PotentialActionType;
+    private _targets: OpenURITargetProps[];
+    private _name: string;
+    private _type: PotentialActionType;
 
-    constructor(name: string, target: OpenURITargetProps[]) {
-        this.name = name;
-        this.target = target;
-        this["@type"] = "OpenUri";
+    constructor(name: string, targets: OpenURITargetProps[]) {
+        this._name = name;
+        this._targets = targets;
+        this._type = "OpenUri";
     }
 
+    set name(name: string) { this._name = name; }
+    get name(): string { return this._name; }
 
-    setName(name: string): void { this.name = name; }
+    set targets(target: OpenURITargetProps[]) { this._targets = target; }
+    get targets(): OpenURITargetProps[] { return this._targets; }
 
-    setTarget(target: OpenURITargetProps[]): void { this.target = target; }
+    get ["@type"](): PotentialActionType { return this._type; }
 
     get(): OpenURIActionProps {
         return {
             "@type": this["@type"],
             name: this.name,
-            target: this.target
+            targets: this.targets
         }
     }
 }

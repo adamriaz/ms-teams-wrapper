@@ -1,38 +1,40 @@
 import { HttpPostActionHeaderProps, HttpPostActionProps, PotentialActionType } from "../../types/message-card-types";
 
 interface IHttpPostAction extends HttpPostActionProps {
-    setTarget(target: string): void;
-    setBody(body: string): void;
-    setBodyContentType(bodyContentType: string): void;
-    setHeaders(headers: HttpPostActionHeaderProps[]): void;
-    setName(name: string): void;
     get(): HttpPostActionProps;
 }
 
 export class HttpPostAction implements IHttpPostAction {
-    target: string;
-    body: string;
-    bodyContentType?: string;
-    headers?: HttpPostActionHeaderProps[];
-    "@type": PotentialActionType;
-    name: string;
+    private _target: string;
+    private _body: string;
+    private _bodyContentType?: string;
+    private _headers?: HttpPostActionHeaderProps[];
+    private _type: PotentialActionType;
+    private _name: string;
 
     constructor(target: string, body: string, name: string) {
-        this.target = target;
-        this.body = body;
-        this.name = name;
-        this["@type"] = "HttpPOST";
+        this._target = target;
+        this._body = body;
+        this._name = name;
+        this._type = "HttpPOST";
     }
 
-    setTarget(target: string): void { this.target = target; }
+    set target(target: string) { this._target = target; }
+    get target(): string { return this._target; }
 
-    setBody(body: string): void { this.body = body; }
+    set body(body: string) { this._body = body; }
+    get body(): string { return this._body; }
 
-    setBodyContentType(bodyContentType: string): void { this.bodyContentType = bodyContentType; }
+    set bodyContentType(bodyContentType: string) { this._bodyContentType = bodyContentType; }
+    get bodyContentType(): string { return this._bodyContentType; }
 
-    setHeaders(headers: HttpPostActionHeaderProps[]): void { this.headers = headers; }
+    set headers(headers: HttpPostActionHeaderProps[]) { this._headers = headers; }
+    get headers(): HttpPostActionHeaderProps[] { return this._headers; }
 
-    setName(name: string): void { this.name = name; }
+    set name(name: string) { this._name = name; }
+    get name(): string { return this._name; }
+
+    get["@type"](): PotentialActionType { return this._type; }
 
     get(): HttpPostActionProps {
         return {

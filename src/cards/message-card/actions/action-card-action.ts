@@ -1,28 +1,30 @@
 import { ActionCardActionProps, ActionTypesForActionCardsActions, InputTypes, PotentialActionType } from "../../types/message-card-types";
 
 export interface IActionCardAction extends ActionCardActionProps {
-    setName(name: string): void;
-    setInputs(inputs: InputTypes[]): void;
-    setActions(actions: ActionTypesForActionCardsActions[]): void;
     get(): ActionCardActionProps;
 }
 
 export class ActionCardAction implements IActionCardAction {
-    actions: ActionTypesForActionCardsActions[];
-    inputs: InputTypes[];
-    name: string;
-    "@type": PotentialActionType;
+    private _actions: ActionTypesForActionCardsActions[];
+    private _inputs: InputTypes[];
+    private _name: string;
+    private _type: PotentialActionType;
 
     constructor(name: string) {
-        this.name = name;
-        this["@type"] = "ActionCard";
+        this._name = name;
+        this._type = "ActionCard";
     }
 
-    setName(name: string): void { this.name = name }
+    set name(name: string) { this._name = name }
+    get name(): string { return this._name }
 
-    setInputs(inputs: InputTypes[]): void { this.inputs = inputs }
+    set inputs(inputs: InputTypes[]) { this._inputs = inputs }
+    get inputs(): InputTypes[] { return this._inputs }
 
-    setActions(actions: ActionTypesForActionCardsActions[]): void { this.actions = actions }
+    set actions(actions: ActionTypesForActionCardsActions[]) { this._actions = actions }
+    get actions(): ActionTypesForActionCardsActions[] { return this._actions }
+
+    get ["@type"]() { return this._type }
 
     get(): ActionCardActionProps {
         return {

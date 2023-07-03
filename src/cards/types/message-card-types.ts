@@ -60,7 +60,7 @@ export interface BasePotentialActionProps {
 }
 
 export interface OpenURIActionProps extends BasePotentialActionProps {
-    target: OpenURITargetProps[];
+    targets: OpenURITargetProps[];
 }
 
 export interface HttpPostActionProps extends BasePotentialActionProps {
