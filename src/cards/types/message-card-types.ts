@@ -73,7 +73,7 @@ export interface HttpPostActionProps extends BasePotentialActionProps {
 export type ActionTypesForActionCardsActions = OpenURIActionProps[] | HttpPostActionProps[]
 
 export interface ActionCardActionProps extends BasePotentialActionProps {
-    actions: ActionTypesForActionCardsActions[];
+    actions: ActionTypesForActionCardsActions;
     inputs: InputTypes[];
 }
 

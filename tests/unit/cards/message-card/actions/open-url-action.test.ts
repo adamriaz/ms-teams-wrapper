@@ -17,7 +17,7 @@ describe('OpenUriAction class', () => {
         expect(action.name).toEqual("Visit my site");
     });
 
-    it('should set name and return expected value', () => {
+    it('should set properties and return expected value', () => {
         const action = new OpenUriAction("Visit my site", targets);
         action.name = "Visit my blog";
         const _os: IPotentialActionTargetOSType = "android";

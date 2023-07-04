@@ -16,6 +16,7 @@ export class HttpPostAction implements IHttpPostAction {
         this._target = target;
         this._body = body;
         this._name = name;
+        this._headers = [];
         this._type = "HttpPOST";
     }
 
