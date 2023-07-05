@@ -102,4 +102,5 @@ export interface MessageCardProps extends BaseCardProps {
     text: string;
     themeColor?: string;
     sections?: MessageCardSectionProps[];
+    potentialAction: PotentialActionTypes;
 }

@@ -1,5 +1,5 @@
 import { CardTypes, ContextTypes } from "../types/base-card-variation-types";
-import { MessageCardProps, MessageCardSectionProps } from "../types/message-card-types";
+import { MessageCardProps, MessageCardSectionProps, PotentialActionTypes } from "../types/message-card-types";
 
 interface IMessageCard extends MessageCardProps {
     get(): MessageCardProps;
@@ -15,6 +15,7 @@ export class MessageCard implements IMessageCard {
     private _text: string;
     private _themeColor?: string;
     private _sections?: MessageCardSectionProps[];
+    private _potentialAction: PotentialActionTypes;
 
     constructor(summary: string, title: string, text: string) {
         this._summary = summary;
@@ -45,6 +46,10 @@ export class MessageCard implements IMessageCard {
     set expectedActors(expectedActors: string[]) { this._expectedActors = expectedActors; }
     get expectedActors() { return this._expectedActors; }
 
+    
+    set potentialAction(potentialAction: PotentialActionTypes) { this._potentialAction = potentialAction; }
+    get potentialAction(): PotentialActionTypes { return this._potentialAction; }
+
     get ["@type"]() { return this._type; }
     get ["@context"]() { return this._context; }
 
@@ -58,7 +63,8 @@ export class MessageCard implements IMessageCard {
             summary: this.summary,
             text: this.text,
             themeColor: this.themeColor,
-            sections: this.sections
+            sections: this.sections,
+            potentialAction: this.potentialAction
         }
     }
 }
