@@ -1,70 +1,30 @@
+import { BaseClass } from "../../utils/base-class";
 import { CardTypes, ContextTypes } from "../types/base-card-variation-types";
 import { MessageCardProps, MessageCardSectionProps, PotentialActionTypes } from "../types/message-card-types";
 
-interface IMessageCard extends MessageCardProps {
-    get(): MessageCardProps;
-}
+interface IMessageCard extends MessageCardProps, BaseClass<MessageCardProps> { }
 
 export class MessageCard implements IMessageCard {
-    private _type: CardTypes;
-    private _context: ContextTypes;
-    private _correlationId?: string;
-    private _expectedActors?: string[];
-    private _title: string;
-    private _summary: string;
-    private _text: string;
-    private _themeColor?: string;
-    private _sections?: MessageCardSectionProps[];
-    private _potentialAction: PotentialActionTypes;
+    readonly ["@type"]: CardTypes;
+    readonly ["@context"]: ContextTypes;
+    correlationId?: string;
+    expectedActors?: string[];
+    title: string;
+    summary: string;
+    text: string;
+    themeColor?: string;
+    sections?: MessageCardSectionProps[];
+    potentialAction: PotentialActionTypes;
 
     constructor(summary: string, title: string, text: string) {
-        this._summary = summary;
-        this._title = title;
-        this._text = text;
-        this._type = "MessageCard";
-        this._context = "http://schema.org/extensions";
+        this.summary = summary;
+        this.title = title;
+        this.text = text;
+        this["@type"] = "MessageCard";
+        this["@context"] = "http://schema.org/extensions";
     }
 
-    set summary(summary: string) { this._summary = summary; }
-    get summary() { return this._summary; }
-
-    set title(title: string) { this._title = title; }
-    get title() { return this._title; }
-
-    set text(text: string) { this._text = text; }
-    get text() { return this._text; }
-
-    set sections(sections: MessageCardSectionProps[]) { this._sections = sections; }
-    get sections() { return this._sections; }
-
-    set themeColor(themeColor: string) { this._themeColor = themeColor; }
-    get themeColor() { return this._themeColor; }
-
-    set correlationId(correlationId: string) { this._correlationId = correlationId; }
-    get correlationId() { return this._correlationId; }
-
-    set expectedActors(expectedActors: string[]) { this._expectedActors = expectedActors; }
-    get expectedActors() { return this._expectedActors; }
-
-    
-    set potentialAction(potentialAction: PotentialActionTypes) { this._potentialAction = potentialAction; }
-    get potentialAction(): PotentialActionTypes { return this._potentialAction; }
-
-    get ["@type"]() { return this._type; }
-    get ["@context"]() { return this._context; }
-
-    get(): MessageCardProps {
-        return {
-            "@type": this["@type"],
-            "@context": this["@context"],
-            correlationId: this.correlationId,
-            expectedActors: this.expectedActors,
-            title: this.title,
-            summary: this.summary,
-            text: this.text,
-            themeColor: this.themeColor,
-            sections: this.sections,
-            potentialAction: this.potentialAction
-        }
+    toObject(): MessageCardProps {
+        return Object.assign({}, this);
     }
 }

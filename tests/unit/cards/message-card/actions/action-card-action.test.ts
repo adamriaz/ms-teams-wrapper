@@ -57,13 +57,13 @@ describe('ActionCardAction class', () => {
         postActions.push(postAction);
 
         actionCardAction.actions = postActions;
-
+        
         expect(actionCardAction.name).toBe("Todo list");
         expect(actionCardAction["@type"]).toBe("ActionCard");
         expect(actionCardAction.inputs).toEqual(inputTypes);
         expect(actionCardAction.actions).toEqual(postActions);
 
-        expect(actionCardAction.get()).toStrictEqual({
+        expect(actionCardAction.toObject()).toStrictEqual({
             name: "Todo list",
             "@type": "ActionCard",
             inputs: inputTypes,

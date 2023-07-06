@@ -15,7 +15,7 @@ describe('MessageCardSectionFact class', () => {
         fact.value = "Name of board";
         expect(fact.name).toBe("Board");
         expect(fact.value).toBe("Name of board");
-        expect(fact.get()).toStrictEqual({
+        expect(fact.toObject()).toStrictEqual({
             name: "Board",
             value: "Name of board"
         });

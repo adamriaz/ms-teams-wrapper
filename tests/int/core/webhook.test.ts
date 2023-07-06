@@ -16,7 +16,7 @@ describe('Webhook Test', () => {
     it('should simulate sending a message to the webhook', async () => {
         const url = "https://[company-name].webhook.office.com/"
         const card = new SimpleTextCard("Hello World");
-        const payload = card.get()
+        const payload = card.toObject()
 
         mockedAxios.onPost(url, payload).replyOnce(200, {
             data: 1
@@ -52,6 +52,5 @@ describe('Webhook Test', () => {
                 status: 400
             });
         }
-       
     });
 });

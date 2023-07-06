@@ -15,7 +15,7 @@ describe('HttpPostActionHeader class', () => {
         action.value = "complete";
         expect(action.name).toBe("CARD-ACTION-STATUS");
         expect(action.value).toBe("complete");
-        expect(action.get()).toStrictEqual({
+        expect(action.toObject()).toStrictEqual({
             name: "CARD-ACTION-STATUS",
             value: "complete"
         });

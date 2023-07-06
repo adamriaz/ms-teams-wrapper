@@ -16,7 +16,7 @@ describe('SimpleTextCard class', () => {
     it('check if get method returns expected values', () => {
         const simpleTextCard = new SimpleTextCard("test");
         simpleTextCard.text = "testing";
-        expect(simpleTextCard.get()).toStrictEqual({ text: "testing" });
+        expect(simpleTextCard.toObject()).toStrictEqual({ text: "testing" });
     });
 
 });

@@ -70,7 +70,7 @@ describe('MessageCard class', () => {
         expect(messageCard.summary).toBe("testing");
         expect(messageCard.sections).toEqual(sections);
         expect(messageCard.potentialAction).toEqual([]);
-        expect(messageCard.get()).toStrictEqual({
+        expect(messageCard.toObject()).toStrictEqual({
             correlationId: "test-card",
             expectedActors: ["tester@test.com"],
             themeColor: "000000",

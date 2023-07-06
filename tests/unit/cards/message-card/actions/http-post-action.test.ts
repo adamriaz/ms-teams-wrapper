@@ -29,7 +29,7 @@ describe('HttpPostAction class', () => {
         expect(action.target).toEqual("https://www.bing.com");
         expect(action.bodyContentType).toEqual("application/json");
         expect(action.headers).toEqual(headers);
-        expect(action.get()).toEqual({
+        expect(action.toObject()).toEqual({
             "@type": "HttpPOST",
             body: "World",
             bodyContentType: "application/json",

@@ -30,7 +30,7 @@ describe('TextInput class', () => {
         expect(input.isMultiline).toBe(false);
         expect(input.maxLength).toBe(100);
         
-        expect(input.get()).toStrictEqual({
+        expect(input.toObject()).toStrictEqual({
             "@type": "TextInput",
             id: "name",
             isMultiline: false,

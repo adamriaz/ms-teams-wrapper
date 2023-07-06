@@ -1,29 +1,19 @@
+import { BaseClass } from "../../utils/base-class";
 import { MessageCardSectionImageProps } from "../types/message-card-types";
 
-interface IMessageCardSectionImage extends MessageCardSectionImageProps {
-    get(): MessageCardSectionImageProps;
-}
+interface IMessageCardSectionImage extends MessageCardSectionImageProps, BaseClass<MessageCardSectionImageProps> {}
 
 export class MessageCardSectionImage implements IMessageCardSectionImage {
-    private _title: string;
-    private _image: string;
+    title: string;
+    image: string;
 
     constructor(title: string, image: string) {
-        this._title = title;
-        this._image = image;
+        this.title = title;
+        this.image = image;
     }
 
-    set title (title: string) { this._title = title; }
-    get title(): string { return this._title; }
-
-    set image(image: string) { this._image = image; }
-    get image(): string { return this._image; }
-
-    get(): MessageCardSectionImageProps {
-        return {
-            title: this.title,
-            image: this.image
-        }
+    toObject(): MessageCardSectionImageProps {
+        return Object.assign({}, this);
     }
 
 }

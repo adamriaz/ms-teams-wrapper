@@ -15,7 +15,7 @@ describe('MessageCardSectionImage class', () => {
         image.image = "https://picsum.photos/id/14/367/267";
         expect(image.title).toBe("newImage");
         expect(image.image).toBe("https://picsum.photos/id/14/367/267");
-        expect(image.get()).toStrictEqual({
+        expect(image.toObject()).toStrictEqual({
             title: "newImage",
             image: "https://picsum.photos/id/14/367/267"
         });

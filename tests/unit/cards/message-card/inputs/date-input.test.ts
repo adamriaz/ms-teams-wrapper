@@ -23,7 +23,7 @@ describe('DateInput class', () => {
         expect(input.value).toBe("2023-07-04T08:00:00.000Z");
         expect(input.includeTime).toBe(true);
         expect(input.isRequired).toBe(true);
-        expect(input.get()).toStrictEqual({ 
+        expect(input.toObject()).toStrictEqual({ 
             "@type": "DateInput",
             id: "issueDate",
             title: "Issue Date",

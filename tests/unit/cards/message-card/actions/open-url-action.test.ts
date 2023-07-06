@@ -34,15 +34,9 @@ describe('OpenUriAction class', () => {
 
     it('should return expected get method value', () => {
         const action = new OpenUriAction("Visit my site", targets);
-        expect(action.get()).toStrictEqual({
-            "@type": "OpenUri",
-            name: "Visit my site",
-            targets
-        })
-
         action.name = "Visit my blog";
 
-        expect(action.get()).toStrictEqual({
+        expect(action.toObject()).toStrictEqual({
             "@type": "OpenUri",
             name: "Visit my blog",
             targets

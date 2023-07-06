@@ -59,7 +59,7 @@ describe('MessageCardSection class', () => {
         expect(section.startGroup).toBe(true);
 
 
-        expect(section.get()).toStrictEqual({
+        expect(section.toObject()).toStrictEqual({
             title: "test card",
             text: "test text",
             activityTitle: "test activity",

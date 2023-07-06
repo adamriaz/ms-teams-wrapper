@@ -77,7 +77,7 @@ describe('MultiChoiceInput class', () => {
         expect(input.isRequired).toBe(true);
         expect(input.style).toBe("expanded");
         expect(input.choices).toEqual(UpdatedMultiChoiceInputChoices);
-        expect(input.get()).toStrictEqual({
+        expect(input.toObject()).toStrictEqual({
             id: "task-list",
             "@type": "MultiChoiceInput",
             title: "task list",

@@ -15,7 +15,7 @@ describe('MultiChoiceInputChoice class', () => {
         input.value = "Step 2";
         expect(input.display).toEqual("Step 2");
         expect(input.value).toEqual("Step 2");
-        expect(input.get()).toStrictEqual({
+        expect(input.toObject()).toStrictEqual({
             display: "Step 2",
             value: "Step 2"
         });

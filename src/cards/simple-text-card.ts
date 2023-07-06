@@ -1,25 +1,20 @@
+import { BaseClass } from "../utils/base-class";
+
 export interface SimpleTextCardProps {
     text: string;
 }
 
-export interface ISimpleTextCard extends SimpleTextCardProps {
-    get(): SimpleTextCardProps;
-}
+interface ISimpleTextCard extends SimpleTextCardProps, BaseClass<SimpleTextCardProps> {}
 
 export class SimpleTextCard implements ISimpleTextCard  {
     
-    private _text: string;
+    text: string;
 
     constructor(text: string) {
-        this._text = text;
+        this.text = text;
     }
 
-    set text(text: string) { this._text = text }
-    get text(): string { return this._text }
-
-    get(): SimpleTextCardProps {
-        return {
-            text: this.text
-        };
+    toObject(): SimpleTextCardProps {
+        return Object.assign({}, this);
     }
 }
