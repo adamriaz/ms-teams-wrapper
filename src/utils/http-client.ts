@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { JSONType, WebhookResult } from './types';
+import { WebhookError, WebhookRequest, WebhookResult } from './types';
 
 
 class HttpClient {
@@ -18,19 +18,26 @@ class HttpClient {
 
     }
 
-    public async send(payload: JSONType) {
+    public async send(payload: WebhookRequest): Promise<WebhookResult> {
         try {
             const response = await this._axios.post(this._url, payload);
             return this.results(response);
         } catch (error) {
-            throw error;
+            throw this.error(error);
         }
-
     }
 
     private results(response: AxiosResponse): WebhookResult {
         return {
             data: response.data
+        };
+    }
+
+    private error(error: any): WebhookError {
+        return {
+            errorMessage: error.message,
+            data: error.response.data,
+            status: error.response.status
         };
     }
 }
