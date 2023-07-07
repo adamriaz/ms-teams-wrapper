@@ -43,6 +43,7 @@
     "collectCoverageFrom": [
       "**/*.{js,ts}",
       "!**/node_modules/**",
+      "!**/demo/**",
       "!**/dist/**",
       "!**/index.{js,ts}",
       "!**/coverage/**"
