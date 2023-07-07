@@ -14,3 +14,27 @@ export { ActionCardAction } from './message-card/actions/action-card-action';
 export { HttpPostAction } from './message-card/actions/http-post-action';
 export { HttpPostActionHeader } from './message-card/actions/http-post-action-header';
 export { OpenUriAction } from './message-card/actions/open-uri-action';
+
+export {
+    ActionCardActionProps,
+    BaseInputProps,
+    DateInputProps,
+    ActionTypesForActionCardsActions,
+    BaseInputTypes,
+    BasePotentialActionProps,
+    HttpPostActionHeaderProps,
+    HttpPostActionProps,
+    IPotentialActionTargetOSType,
+    InputTypes,
+    MessageCardProps,
+    MessageCardSectionFactProps,
+    MessageCardSectionImageProps,
+    MessageCardSectionProps,
+    MultiChoiceInputChoiceProps,
+    MultiChoiceInputProps,
+    OpenURIActionProps,
+    PotentialActionTypes,
+    OpenURITargetProps,
+    PotentialActionType,
+    TextInputProps
+ } from './types/message-card-types';
