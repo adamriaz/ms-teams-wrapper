@@ -45,7 +45,7 @@ describe('ActionCardAction class', () => {
 
         actionCardAction.inputs = inputTypes;
         const postActions: HttpPostActionProps[] = [];
-        const postAction = new HttpPostAction("https://www.google.com", "Hello", "test");
+        const postAction = new HttpPostAction("https://www.google.com", "test");
 
         postAction.body = "World";
         postAction.name = "test2";
