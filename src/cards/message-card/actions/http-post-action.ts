@@ -4,16 +4,15 @@ import { HttpPostActionHeaderProps, HttpPostActionProps, PotentialActionType } f
 interface IHttpPostAction extends HttpPostActionProps, BaseClass<HttpPostActionProps> {}
 
 export class HttpPostAction implements IHttpPostAction {
-    target: string;
-    body: string;
+    target?: string;
+    body?: string;
     bodyContentType?: string;
     headers?: HttpPostActionHeaderProps[];
     readonly ["@type"]: PotentialActionType;
     name: string;
 
-    constructor(target: string, body: string, name: string) {
+    constructor(target: string, name: string) {
         this.target = target;
-        this.body = body;
         this.name = name;
         this["@type"] = "HttpPOST";
     }

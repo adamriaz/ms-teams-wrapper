@@ -60,12 +60,12 @@ export interface BasePotentialActionProps {
 }
 
 export interface OpenURIActionProps extends BasePotentialActionProps {
-    targets: OpenURITargetProps[];
+    targets?: OpenURITargetProps[];
 }
 
 export interface HttpPostActionProps extends BasePotentialActionProps {
-    target: string;
-    body: string;
+    target?: string;
+    body?: string;
     bodyContentType?: string;
     headers?: HttpPostActionHeaderProps[];
 }
@@ -73,11 +73,11 @@ export interface HttpPostActionProps extends BasePotentialActionProps {
 export type ActionTypesForActionCardsActions = OpenURIActionProps[] | HttpPostActionProps[]
 
 export interface ActionCardActionProps extends BasePotentialActionProps {
-    actions: ActionTypesForActionCardsActions;
-    inputs: InputTypes[];
+    actions?: ActionTypesForActionCardsActions;
+    inputs?: InputTypes[];
 }
 
-export type PotentialActionTypes = ActionCardActionProps[] | OpenURIActionProps[] | HttpPostActionProps[];
+export type PotentialActionTypes = ActionCardActionProps[] & OpenURIActionProps[] & HttpPostActionProps[];
 
 export interface MessageCardSectionProps {
     title: string;
@@ -102,5 +102,5 @@ export interface MessageCardProps extends BaseCardProps {
     text: string;
     themeColor?: string;
     sections?: MessageCardSectionProps[];
-    potentialAction: PotentialActionTypes;
+    potentialAction?: PotentialActionTypes;
 }

@@ -5,16 +5,15 @@ import { HttpPostActionHeaderProps } from "../../../../../src/cards/types/messag
 describe('HttpPostAction class', () => {
 
     it('should create an instance of HttpPostAction', () => {
-        const action = new HttpPostAction("https://www.google.com", "Hello", "test");
+        const action = new HttpPostAction("https://www.google.com", "test");
         expect(action).toBeDefined();
         expect(action["@type"]).toEqual("HttpPOST");
-        expect(action.body).toEqual("Hello");
         expect(action.name).toEqual("test");
         expect(action.target).toEqual("https://www.google.com");
     });
 
     it('should set properties and return expected value', () => {
-        const action = new HttpPostAction("https://www.google.com", "Hello", "test");
+        const action = new HttpPostAction("https://www.google.com", "Hello");
 
         action.body = "World";
         action.name = "test2";

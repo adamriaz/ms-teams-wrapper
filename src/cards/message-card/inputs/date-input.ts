@@ -7,7 +7,7 @@ export class DateInput implements IDateInput {
     includeTime?: boolean;
     id: string;
     readonly ["@type"]: BaseInputTypes;
-    isRequired: boolean;
+    isRequired?: boolean;
     title: string;
     value: string;
 

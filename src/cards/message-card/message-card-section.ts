@@ -5,16 +5,16 @@ interface IMessageCardSection extends MessageCardSectionProps, BaseClass<Message
 
 export class MessageCardSection implements IMessageCardSection {
     title: string;
-    startGroup: boolean;
-    activityTitle: string;
-    activitySubtitle: string;
-    activityText: string;
-    activityImage: string;
-    heroImage: string;
-    text: string;
-    facts: MessageCardSectionFactProps[];
-    images: MessageCardSectionImageProps[];
-    potentialAction: PotentialActionTypes;
+    startGroup?: boolean;
+    activityTitle?: string;
+    activitySubtitle?: string;
+    activityText?: string;
+    activityImage?: string;
+    heroImage?: string;
+    text?: string;
+    facts?: MessageCardSectionFactProps[];
+    images?: MessageCardSectionImageProps[];
+    potentialAction?: PotentialActionTypes;
 
     constructor(title: string) {
         this.title = title;

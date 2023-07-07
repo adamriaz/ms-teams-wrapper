@@ -14,7 +14,7 @@ export class MessageCard implements IMessageCard {
     text: string;
     themeColor?: string;
     sections?: MessageCardSectionProps[];
-    potentialAction: PotentialActionTypes;
+    potentialAction?: PotentialActionTypes;
 
     constructor(summary: string, title: string, text: string) {
         this.summary = summary;

@@ -5,11 +5,11 @@ interface IMultiChoiceInput extends MultiChoiceInputProps, BaseClass<MultiChoice
 
 export class MultiChoiceInput implements IMultiChoiceInput {
     choices: MultiChoiceInputChoiceProps[];
-    isMultiSelect: boolean;
-    style: string;
+    isMultiSelect?: boolean;
+    style?: string;
     id: string;
     readonly ["@type"]: BaseInputTypes;
-    isRequired: boolean;
+    isRequired?: boolean;
     title: string;
     value: string;
 

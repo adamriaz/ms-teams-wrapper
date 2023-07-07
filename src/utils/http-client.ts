@@ -34,11 +34,12 @@ class HttpClient {
     }
 
     private error(error: any): WebhookError {
-        return {
+        const responseError = {
             errorMessage: error.message,
             data: error.response.data,
             status: error.response.status
         };
+        return responseError;
     }
 }
 
