@@ -1,1 +1,0 @@
-export { Webhook } from './webhook';

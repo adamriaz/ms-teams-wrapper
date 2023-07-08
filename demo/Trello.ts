@@ -1,6 +1,12 @@
-import { ActionCardAction, ActionCardActionProps, DateInput, HttpPostAction, HttpPostActionProps, MessageCard, MessageCardSection, 
-    MessageCardSectionFact, MessageCardSectionFactProps, MessageCardSectionProps, MultiChoiceInput, MultiChoiceInputChoice, MultiChoiceInputChoiceProps, 
-    OpenURIActionProps, OpenURITargetProps, OpenUriAction, TextInput, Webhook } from "../src";
+import {
+    ActionCardAction, DateInput, HttpPostAction, MessageCard, MessageCardSection, MessageCardSectionFact, MultiChoiceInput, MultiChoiceInputChoice,
+    OpenUriAction, TextInput, Webhook,
+} from "../src";
+
+import {
+    ActionCardActionProps, HttpPostActionProps, MessageCardSectionFactProps, MessageCardSectionProps,
+    MultiChoiceInputChoiceProps, OpenURIActionProps, OpenURITargetProps
+} from '../src/props';
 
 async function sendTrelloCard() {
     try {
@@ -10,7 +16,7 @@ async function sendTrelloCard() {
 
         // Add sections
         const sections: MessageCardSectionProps[] = [];
-        
+
         const section = new MessageCardSection("");
         section.activityTitle = "David Claux";
         section.activitySubtitle = "01/07/2023, 11:46am";
@@ -51,7 +57,7 @@ async function sendTrelloCard() {
         moveActionOK.body = "body of post request";
         moveActionHttpPostActions.push(moveActionOK);
         moveAction.actions = moveActionHttpPostActions;
-        
+
         //Multiple choice input
         const choices: MultiChoiceInputChoiceProps[] = [];
         const choice1 = new MultiChoiceInputChoice("Choice 1", "Choice 1");
