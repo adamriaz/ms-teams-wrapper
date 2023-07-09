@@ -6,12 +6,12 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
-    "./props": "./dist/props/index.js"
+    "./types": "./dist/types/index.js"
   },
   "typesVersions": {
     "*": {
-      "props": [
-        "./dist/props/index.d.ts"
+      "types": [
+        "./dist/types/index.d.ts"
       ]
     }
   },

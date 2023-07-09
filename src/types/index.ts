@@ -20,4 +20,10 @@ export type {
     OpenURITargetProps,
     PotentialActionType,
     TextInputProps
- } from '../cards/types/message-card-types';
+} from '../cards/types/message-card-types';
+
+export type {
+    WebhookResult,
+    WebhookError,
+    WebhookRequest
+} from '../utils/types';
