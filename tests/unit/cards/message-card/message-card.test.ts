@@ -39,10 +39,8 @@ describe('MessageCard class', () => {
         facts.push(fact);
 
         section.facts = facts;
-        section.heroImage = {
-            image: "https://picsum.photos/id/15/367/267",
-            title: "test hero image",
-        };
+        const heroImage = new MessageCardSectionImage("image1", "https://picsum.photos/id/13/367/267");
+        section.heroImage = heroImage;
 
         const image = new MessageCardSectionImage("image1", "https://picsum.photos/id/13/367/267");
         const images: MessageCardSectionImage[] = []

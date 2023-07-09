@@ -26,10 +26,8 @@ describe('MessageCardSection class', () => {
         facts.push(fact);
 
         section.facts = facts;
-        section.heroImage = {
-            image: "https://picsum.photos/id/14/367/267",
-            title: "test hero image"
-        };
+        const heroImage = new MessageCardSectionImage("image1", "https://picsum.photos/id/13/367/267");
+        section.heroImage = heroImage;
 
         const image = new MessageCardSectionImage("image1", "https://picsum.photos/id/13/367/267");
         const images: MessageCardSectionImage[] = []
@@ -56,7 +54,7 @@ describe('MessageCardSection class', () => {
         expect(section.activityText).toBe("test activity text");
         expect(section.activityImage).toBe("https://picsum.photos/id/14/367/267");
         expect(section.facts).toEqual(facts);
-        expect(section.heroImage).toBe("https://picsum.photos/id/14/367/267");
+        expect(section.heroImage).toBe(heroImage);
         expect(section.images).toEqual(images);
         expect(section.potentialAction).toStrictEqual(potentialActions);
         expect(section.startGroup).toBe(true);
@@ -73,7 +71,7 @@ describe('MessageCardSection class', () => {
             potentialAction: potentialActions,
             startGroup: true,
             images,
-            heroImage: "https://picsum.photos/id/14/367/267"         
+            heroImage        
         });
     });
 });
