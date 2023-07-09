@@ -1,5 +1,7 @@
-import { SimpleTextCard, Webhook } from "../src";
-import { demoUrl } from "./constants";
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { SimpleTextCard, Webhook } = require("../../src");
+const { demoUrl } = require("../constants");
+
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function send() {

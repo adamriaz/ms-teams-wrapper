@@ -65,5 +65,8 @@
     ],
     "preset": "ts-jest",
     "testEnvironment": "node"
+  },
+  "engines" : {
+    "node" : ">=12.22.10"
   }
 }
