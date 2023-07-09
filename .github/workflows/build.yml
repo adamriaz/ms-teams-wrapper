@@ -34,7 +34,7 @@ jobs:
     - name: Lint files
       uses: borales/actions-yarn@v4
       with:
-        cmd: install
+        cmd: lint
     
     - name: Build files
       uses: borales/actions-yarn@v4
