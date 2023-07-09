@@ -10,7 +10,7 @@ export class MessageCardSection implements IMessageCardSection {
     activitySubtitle?: string;
     activityText?: string;
     activityImage?: string;
-    heroImage?: string;
+    heroImage?: MessageCardSectionImageProps;
     text?: string;
     facts?: MessageCardSectionFactProps[];
     images?: MessageCardSectionImageProps[];

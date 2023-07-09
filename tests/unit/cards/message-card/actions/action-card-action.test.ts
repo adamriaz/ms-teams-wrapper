@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@jest/globals";
 import { ActionCardAction } from "../../../../../src/cards/message-card/actions/action-card-action";
-import { HttpPostActionHeaderProps, HttpPostActionProps, InputTypes, MultiChoiceInputChoiceProps, MultiChoiceInputProps } from "../../../../../src/cards/types/message-card-types";
+import { HttpPostActionHeaderProps, HttpPostActionProps, InputTypes, MultiChoiceInputChoiceProps } from "../../../../../src/cards/types/message-card-types";
 import { HttpPostAction } from "../../../../../src/cards/message-card/actions/http-post-action";
 
 describe('ActionCardAction class', () => {
