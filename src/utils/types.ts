@@ -17,6 +17,6 @@ export interface WebhookResult {
 
 export interface WebhookError {
   errorMessage: string;
-  data: any
-  status: number
+  data: any;
+  status: number;
 }

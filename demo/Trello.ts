@@ -7,10 +7,11 @@ import {
     ActionCardActionProps, HttpPostActionProps, MessageCardSectionFactProps, MessageCardSectionProps,
     MultiChoiceInputChoiceProps, OpenURIActionProps, OpenURITargetProps
 } from '../src/props';
+import { demoUrl } from "./constants";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function sendTrelloCard() {
     try {
-        const url = "https://[account-name].webhook.office.com";
         const card = new MessageCard("Card Test", "Card created: Test", "");
         card.themeColor = "0078D7";
 
@@ -99,7 +100,7 @@ async function sendTrelloCard() {
         card.potentialAction = potentialActions;
         card.sections = sections;
 
-        const webook = new Webhook(url, card);
+        const webook = new Webhook(demoUrl, card);
 
         const response = await webook.sendMessage();
         console.log(response);

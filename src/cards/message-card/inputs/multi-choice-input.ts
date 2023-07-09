@@ -23,5 +23,5 @@ export class MultiChoiceInput implements IMultiChoiceInput {
 
     toObject(): MultiChoiceInputProps {
         return Object.assign({}, this);
-    };
+    }
 }
