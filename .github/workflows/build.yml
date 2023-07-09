@@ -17,7 +17,6 @@ jobs:
     strategy:
       matrix:
         node-version: [14.21.3, 16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
@@ -27,24 +26,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: Install dependencies
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: install
-    
+      run: yarn
+
     - name: Lint files
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: lint
+      run: yarn lint
     
     - name: Build files
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: build
+      run: yarn build
     
     - name: Test the app
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: test:coverage # will run `yarn test:coverage` command
+      run: yarn test:coverage  
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3

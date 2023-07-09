@@ -1,7 +1,7 @@
 {
   "name": "ms-teams-wrapper",
   "version": "1.0.0",
-  "description": "A javascript library to send messages to Microsoft Teams webhooks.",
+  "description": "A node library to send messages to Microsoft Teams webhooks.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -32,6 +32,14 @@
     "wrapper",
     "webhooks"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamriaz/ms-teams-wrapper"
+  },
+  "bugs": {
+    "url": "https://github.com/adamriaz/ms-teams-wrapper/issues"
+  },
+  "homepage": "https://github.com/adamriaz/ms-teams-wrapper#readme",
   "author": "Adam Riaz",
   "license": "ISC",
   "dependencies": {
