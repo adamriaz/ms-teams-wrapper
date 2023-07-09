@@ -2,4 +2,4 @@
 [![Build CI](https://github.com/adamriaz/ms-teams-wrapper/actions/workflows/build.yml/badge.svg)](https://github.com/adamriaz/ms-teams-wrapper/actions/workflows/build.yml)
 
 # Microsoft Teams Webhook Wrapper
-A javascript library to send messages to Microsoft Teams webhooks.
+A node library to send messages to Microsoft Teams webhooks.
