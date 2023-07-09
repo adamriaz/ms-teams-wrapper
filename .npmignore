@@ -1,0 +1,14 @@
+.cache
+*.log
+
+.eslintrc.cjs
+.eslintignore
+.gitignore
+
+node_modules/
+coverage/
+src/
+tests/
+demo/
+
+
