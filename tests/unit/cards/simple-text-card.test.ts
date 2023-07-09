@@ -1,9 +1,6 @@
 import { SimpleTextCard } from '../../../src/cards/simple-text-card';
 import { describe, expect, it } from '@jest/globals';
 
-// #Stub
-//jest.mock('../../src/cards/simple-text-card')
-
 describe('SimpleTextCard class', () => {
 
     

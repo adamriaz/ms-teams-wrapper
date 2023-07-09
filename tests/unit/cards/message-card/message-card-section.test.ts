@@ -34,7 +34,7 @@ describe('MessageCardSection class', () => {
         section.images = images;
 
         const os: IPotentialActionTargetOSType = "default";
-        const uri: string = "https://www.google.com";
+        const uri = "https://www.google.com";
         const target = { os, uri }
         const targets: OpenURITargetProps[] = [];
         targets.push(target)

@@ -4,7 +4,7 @@ import { IPotentialActionTargetOSType, OpenURITargetProps } from "../../../../..
 
 describe('OpenUriAction class', () => {
     const os: IPotentialActionTargetOSType = "default";
-    const uri: string = "https://www.google.com";
+    const uri = "https://www.google.com";
     const target = { os, uri }
     const targets: OpenURITargetProps[] = [];
     targets.push(target)
@@ -21,7 +21,7 @@ describe('OpenUriAction class', () => {
         const action = new OpenUriAction("Visit my site", targets);
         action.name = "Visit my blog";
         const _os: IPotentialActionTargetOSType = "android";
-        const _uri: string = "https://www.youtube.com";
+        const _uri = "https://www.youtube.com";
         const _target = { os: _os, uri: _uri }
         const _targets: OpenURITargetProps[] = [];
         _targets.push(_target)
