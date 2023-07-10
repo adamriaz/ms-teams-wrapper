@@ -85,9 +85,9 @@ async function sendTrelloCard() {
         card.potentialAction = potentialActions;
         card.sections = sections;
 
-        const webook = new Webhook(demoUrl, card);
+        const webhook = new Webhook(demoUrl, card);
 
-        const response = await webook.sendMessage();
+        const response = await webhook.sendMessage();
         console.log(response);
     } catch (error) {
         console.log(error)

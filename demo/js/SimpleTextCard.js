@@ -7,8 +7,8 @@ const { demoUrl } = require("../constants");
 async function send() {
     try {
         const data = new SimpleTextCard("Hello world!");
-        const webook = new Webhook(demoUrl, data);
-        const response = await webook.sendMessage();
+        const webhook = new Webhook(demoUrl, data);
+        const response = await webhook.sendMessage();
         console.log(response);
     } catch (error) {
         console.log(error)
