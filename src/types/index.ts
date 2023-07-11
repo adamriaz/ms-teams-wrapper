@@ -1,3 +1,6 @@
+/**
+ * @module Types
+ */
 export type {
     ActionCardActionProps,
     BaseInputProps,
@@ -22,7 +25,10 @@ export type {
     TextInputProps
 } from '../cards/types/message-card-types';
 
+export type { SimpleTextCardProps } from '../cards/simple-text-card';
+
 export type {
+    JSONType,
     WebhookResult,
     WebhookError,
     WebhookRequest

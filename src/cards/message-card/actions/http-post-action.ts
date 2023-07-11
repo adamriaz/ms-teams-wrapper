@@ -2,7 +2,9 @@ import { BaseClass } from "../../../utils/base-class";
 import { HttpPostActionHeaderProps, HttpPostActionProps, PotentialActionType } from "../../types/message-card-types";
 
 interface IHttpPostAction extends HttpPostActionProps, BaseClass<HttpPostActionProps> {}
-
+/**
+ * @group MessageCard.Actions
+ */
 export class HttpPostAction implements IHttpPostAction {
     target?: string;
     body?: string;

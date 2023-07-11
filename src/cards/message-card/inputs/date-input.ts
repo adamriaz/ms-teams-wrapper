@@ -2,7 +2,9 @@ import { BaseClass } from "../../../utils/base-class";
 import { BaseInputTypes, DateInputProps } from "../../types/message-card-types";
 
 interface IDateInput extends DateInputProps, BaseClass<DateInputProps> {}
-
+/**
+ * @group MessageCard.Inputs
+ */
 export class DateInput implements IDateInput {
     includeTime?: boolean;
     id: string;

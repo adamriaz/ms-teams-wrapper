@@ -5,7 +5,9 @@ export interface SimpleTextCardProps {
 }
 
 interface ISimpleTextCard extends SimpleTextCardProps, BaseClass<SimpleTextCardProps> {}
-
+/**
+ * @group SimpleTextCard
+ */
 export class SimpleTextCard implements ISimpleTextCard  {
     
     text: string;

@@ -2,7 +2,7 @@ import { MessageCard, MessageCardSection, Webhook } from "../../src";
 import { demoUrl } from "../constants";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-async function sendTwitterCard() {
+export async function sendTwitterCard() {
     try {
         const card = new MessageCard("Random Tweet", "", "");
         card.themeColor = "0078D7";

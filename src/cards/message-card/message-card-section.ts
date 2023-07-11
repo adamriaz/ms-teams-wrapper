@@ -3,6 +3,12 @@ import { MessageCardSectionFactProps, MessageCardSectionImageProps, MessageCardS
 
 interface IMessageCardSection extends MessageCardSectionProps, BaseClass<MessageCardSectionProps> { }
 
+/**
+ * @group MessageCard
+ * @class MessageCardSection
+ * @description Creates a MessageCardSection object.
+ * 
+ */
 export class MessageCardSection implements IMessageCardSection {
     title: string;
     startGroup?: boolean;

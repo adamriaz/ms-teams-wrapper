@@ -2,7 +2,9 @@ import { BaseClass } from "../../../utils/base-class";
 import { BaseInputTypes, TextInputProps } from "../../types/message-card-types";
 
 interface ITextInput extends TextInputProps, BaseClass<TextInputProps> {}
-
+/**
+ * @group MessageCard.Inputs
+ */
 export class TextInput implements ITextInput {
     isMultiline: boolean;
     maxLength: number;

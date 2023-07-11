@@ -2,7 +2,9 @@ import { BaseClass } from "../../../utils/base-class";
 import { OpenURIActionProps, OpenURITargetProps, PotentialActionType } from "../../types/message-card-types";
 
 interface IOpenURIAction extends OpenURIActionProps, BaseClass<OpenURIActionProps> {}
-
+/**
+ * @group MessageCard.Actions
+ */
 export class OpenUriAction implements IOpenURIAction {
     targets: OpenURITargetProps[];
     name: string;

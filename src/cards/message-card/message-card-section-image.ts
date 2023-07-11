@@ -2,7 +2,9 @@ import { BaseClass } from "../../utils/base-class";
 import { MessageCardSectionImageProps } from "../types/message-card-types";
 
 interface IMessageCardSectionImage extends MessageCardSectionImageProps, BaseClass<MessageCardSectionImageProps> {}
-
+/**
+ * @group MessageCard
+ */
 export class MessageCardSectionImage implements IMessageCardSectionImage {
     title: string;
     image: string;

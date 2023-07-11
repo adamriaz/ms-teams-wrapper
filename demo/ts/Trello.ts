@@ -10,7 +10,7 @@ import {
 import { demoUrl } from "../constants";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-async function sendTrelloCard() {
+export async function sendTrelloCard() {
     try {
         const card = new MessageCard("Card Test", "Card created: Test", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
         card.themeColor = "0078D7";

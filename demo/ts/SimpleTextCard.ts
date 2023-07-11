@@ -2,7 +2,7 @@ import { SimpleTextCard, Webhook } from "../../src";
 import { demoUrl } from "../constants";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-async function send() {
+export async function sendSimpleTextCard() {
     try {
         const data = new SimpleTextCard("Hello world!");
         const webhook = new Webhook(demoUrl, data);

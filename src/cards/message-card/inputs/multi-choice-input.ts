@@ -2,7 +2,9 @@ import { BaseClass } from "../../../utils/base-class";
 import { BaseInputTypes, MultiChoiceInputChoiceProps, MultiChoiceInputProps } from "../../types/message-card-types";
 
 interface IMultiChoiceInput extends MultiChoiceInputProps, BaseClass<MultiChoiceInputProps> {}
-
+/**
+ * @group MessageCard.Inputs
+ */
 export class MultiChoiceInput implements IMultiChoiceInput {
     choices: MultiChoiceInputChoiceProps[];
     isMultiSelect?: boolean;

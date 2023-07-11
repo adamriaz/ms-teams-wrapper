@@ -16,7 +16,7 @@ export interface MessageCardSectionImageProps {
 
 export interface BaseInputProps {
     id: string;
-    "@type": BaseInputTypes;
+    readonly "@type": BaseInputTypes;
     isRequired?: boolean;
     title: string;
     value: string;
@@ -55,7 +55,7 @@ export interface OpenURITargetProps {
 } 
 
 export interface BasePotentialActionProps {
-    "@type": PotentialActionType;
+    readonly "@type": PotentialActionType;
     name: string;
 }
 
@@ -94,7 +94,7 @@ export interface MessageCardSectionProps {
 }
 
 export interface MessageCardProps extends BaseCardProps {
-    "@context": ContextTypes
+    readonly "@context": ContextTypes
     correlationId?: string;
     expectedActors?: string[];
     title: string;

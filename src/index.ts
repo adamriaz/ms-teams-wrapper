@@ -1,3 +1,6 @@
+/**
+ * @module Classes
+ */
 export { Webhook } from './core/webhook';
 export { SimpleTextCard } from './cards/simple-text-card';
 export { MessageCard } from './cards/message-card/message-card';
