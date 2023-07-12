@@ -3,9 +3,7 @@ import {
     OpenUriAction, TextInput, Webhook,
 } from "../../src";
 
-import {
-    ActionCardActionProps, HttpPostActionProps, MessageCardSectionFactProps, MessageCardSectionProps,
-    MultiChoiceInputChoiceProps, OpenURIActionProps, OpenURITargetProps
+import { ActionCardActionProps, OpenURIActionProps, OpenURITargetProps
 } from '../../src/types';
 import { demoUrl } from "../constants";
 
@@ -20,14 +18,14 @@ export async function sendTrelloCard() {
         section.activityTitle = "David Claux";
         section.activitySubtitle = "01/07/2023, 11:46am";
         section.activityImage = "https://connectorsdemo.azurewebsites.net/images/MSC12_Oscar_002.jpg";
-        const sections: MessageCardSectionProps[] = [section];
+        const sections: MessageCardSection[] = [section];
 
         // List of facts to section
         const boardFact = new MessageCardSectionFact("Board:", "Name of board");
         const listFact = new MessageCardSectionFact("List:", "Name of list");
         const assignedFact = new MessageCardSectionFact("Assigned to:", "(none)");
         const dueDateFact = new MessageCardSectionFact("Due date:", "(none)");
-        const facts: MessageCardSectionFactProps[] = [boardFact, listFact, assignedFact, dueDateFact];
+        const facts: MessageCardSectionFact[] = [boardFact, listFact, assignedFact, dueDateFact];
         section.facts = facts;
 
         // List of actions to section
@@ -37,7 +35,7 @@ export async function sendTrelloCard() {
         const dateActionOK = new HttpPostAction("https://trello.com", "ok");
         dateActionOK.body = "body of post request";
 
-        const dateActionHttpPostActions: HttpPostActionProps[] = [dateActionOK];
+        const dateActionHttpPostActions: HttpPostAction[] = [dateActionOK];
         dateAction.actions = dateActionHttpPostActions;
         // Date input
         const dateActionInput = new DateInput("dueDate", "Select a date", "");
@@ -49,14 +47,14 @@ export async function sendTrelloCard() {
         const moveAction = new ActionCardAction("Move");
         const moveActionOK = new HttpPostAction("https://trello.com", "ok");
         moveActionOK.body = "body of post request";
-        const moveActionHttpPostActions: HttpPostActionProps[] = [moveActionOK];
+        const moveActionHttpPostActions: HttpPostAction[] = [moveActionOK];
         moveAction.actions = moveActionHttpPostActions;
 
         //Multiple choice input
         
         const choice1 = new MultiChoiceInputChoice("Choice 1", "Choice 1");
         const choice2 = new MultiChoiceInputChoice("Choice 2", "Choice 2");
-        const choices: MultiChoiceInputChoiceProps[] = [choice1, choice2];
+        const choices: MultiChoiceInputChoice[] = [choice1, choice2];
 
         const multiChoiceInput = new MultiChoiceInput("id", "Pick as list", "", choices)
         const multiChoiceInputs: MultiChoiceInput[] = [multiChoiceInput];
@@ -66,7 +64,7 @@ export async function sendTrelloCard() {
         const addCommentAction = new ActionCardAction("Add comment");
         const addCommentActionOK = new HttpPostAction("https://trello.com", "ok");
         addCommentActionOK.body = "body of post request";
-        const addCommentActionHttpPostActions: HttpPostActionProps[] = [addCommentActionOK];
+        const addCommentActionHttpPostActions: HttpPostAction[] = [addCommentActionOK];
         addCommentAction.actions = addCommentActionHttpPostActions;
 
         // Text input

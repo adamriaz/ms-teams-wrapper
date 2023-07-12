@@ -6,8 +6,7 @@ interface IMessageCard extends MessageCardProps, BaseClass<MessageCardProps> { }
 
 /**
  * @group MessageCard
- * @class MessageCard
- * @description Creates a MessageCard object.
+ * @description Creates a MessageCard instance.
  * @example 
  * An example of a twitter styled card that can be used as a message 
  * ```ts

@@ -1,5 +1,6 @@
 .eslintrc.cjs
 tests/**/*
 dist/**/*
+docs/**/*
 coverage
 node_modules

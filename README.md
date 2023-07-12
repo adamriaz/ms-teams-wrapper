@@ -40,7 +40,7 @@ const response = await webhook.sendMessage();
 The connector url can be found by following this guide: https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=javascript#create-incoming-webhooks-1
 
 ## Demo
-Demo files can be found here: https://github.com/adamriaz/ms-teams-wrapper/tree/docs/demo
+Demo files can be found here: https://github.com/adamriaz/ms-teams-wrapper/tree/main/demo
 
 ## Development
 - Clode the repository

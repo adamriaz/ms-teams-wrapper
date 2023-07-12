@@ -4,6 +4,24 @@ import { BaseInputTypes, DateInputProps } from "../../types/message-card-types";
 interface IDateInput extends DateInputProps, BaseClass<DateInputProps> {}
 /**
  * @group MessageCard.Inputs
+ * @description Date input for {@link MessageCard}. This requires the {@link ActionCardAction} and {@link HttpPostAction} instance.
+ * @example 
+ * 
+ * const card = new MessageCard("Card Test", "Card created: Test", "Lorem ipsum dolor sit amet");
+ * const dateAction = new ActionCardAction("Set due date");
+        
+ * const dateActionOK = new HttpPostAction("https://trello.com", "ok");
+ * dateActionOK.body = "body of post request";
+
+ * const dateActionHttpPostActions: HttpPostAction[] = [dateActionOK];
+ * dateAction.actions = dateActionHttpPostActions;
+ *
+ * const dateActionInput = new DateInput("dueDate", "Select a date", "");
+ * const dateActionInputs: DateInput[] = [dateActionInput];
+ * dateAction.inputs = dateActionInputs;
+ * 
+ * const potentialActions: ActionCardAction[] = [dateAction];
+ * card.potentialAction = potentialActions;
  */
 export class DateInput implements IDateInput {
     includeTime?: boolean;

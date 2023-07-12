@@ -33,3 +33,9 @@ export type {
     WebhookError,
     WebhookRequest
 } from '../utils/types';
+
+export type {
+    CardTypes,
+    ContextTypes,
+    BaseCardProps
+} from '../cards/types/base-card-variation-types';
