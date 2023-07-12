@@ -2,7 +2,7 @@ import { Webhook } from "../../src";
 import { demoUrl } from "../constants";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-async function send() {
+export async function sendAdaptiveImageCard() {
     try {
         const data = {
             "type": "message",
@@ -35,8 +35,8 @@ async function send() {
             ],
 
         }
-        const webook = new Webhook(demoUrl, data);
-        const response = await webook.sendMessage();
+        const webhook = new Webhook(demoUrl, data);
+        const response = await webhook.sendMessage();
         console.log(response);
     } catch (error) {
         console.log(error)

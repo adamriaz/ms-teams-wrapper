@@ -4,6 +4,24 @@ import { MessageCardProps, MessageCardSectionProps, PotentialActionTypes } from 
 
 interface IMessageCard extends MessageCardProps, BaseClass<MessageCardProps> { }
 
+/**
+ * @group MessageCard
+ * @description Creates a MessageCard instance.
+ * @example 
+ * An example of a twitter styled card that can be used as a message 
+ * ```ts
+ * const card = new MessageCard("Random Tweet", "Title", "Some text");
+ * card.themeColor = "0078D7";
+ * 
+ * const sectionOne = new MessageCardSection("**Elon Musk**");
+ * sectionOne.activitySubtitle = "@elonmusk - 9/12/2016 at 5:33pm";
+ * sectionOne.activityText = "Climate change explained in comic book form by xkcd xkcd.com/1732";
+ * sectionOne.activityImage = "https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0.jpg";
+ * 
+ * const sections: MessageCardSection[] = [sectionOne];
+ * card.sections = sections;
+ * ```
+ */
 export class MessageCard implements IMessageCard {
     readonly ["@type"]: CardTypes;
     readonly ["@context"]: ContextTypes;

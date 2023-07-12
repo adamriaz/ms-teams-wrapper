@@ -5,7 +5,12 @@ export interface SimpleTextCardProps {
 }
 
 interface ISimpleTextCard extends SimpleTextCardProps, BaseClass<SimpleTextCardProps> {}
-
+/**
+ * @group SimpleTextCard
+ * @description A simple text card to pass a text to the webhook.
+ * @example
+ * const card = new SimpleTextCard("Hello world!");
+ */
 export class SimpleTextCard implements ISimpleTextCard  {
     
     text: string;
