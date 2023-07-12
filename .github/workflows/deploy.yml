@@ -35,7 +35,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create the docs
-        run: npx docs:generate
+        run: yarn run docs:generate
 
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@4.1.4
