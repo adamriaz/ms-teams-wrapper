@@ -1,6 +1,6 @@
 {
   "name": "ms-teams-wrapper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A node library to send messages to Microsoft Teams webhooks.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
