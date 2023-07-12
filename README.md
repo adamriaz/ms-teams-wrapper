@@ -42,6 +42,9 @@ The connector url can be found by following this guide: https://learn.microsoft.
 ## Demo
 Demo files can be found here: https://github.com/adamriaz/ms-teams-wrapper/tree/main/demo
 
+## Docs 
+The docs and references: https://adamriaz.github.io/ms-teams-wrapper/
+
 ## Development
 - Clode the repository
 - Use yarn `npm i -g yarn`
